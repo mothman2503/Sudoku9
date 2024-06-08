@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/games")
 public class GameController {
 
-    //@Autowired
+    @Autowired
     //private GameService gameService;
 
 
