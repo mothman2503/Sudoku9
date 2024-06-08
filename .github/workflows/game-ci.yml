@@ -32,5 +32,5 @@ jobs:
           ${{ runner.os }}-gradle
 
     - name: Build and test
-      working-directory: ./game
+      working-directory: backend/game
       run: ./gradlew build
