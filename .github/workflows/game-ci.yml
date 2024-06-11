@@ -34,3 +34,25 @@ jobs:
     - name: Build and test
       working-directory: backend/game
       run: ./gradlew build
+
+    - name: Run Checkstyle
+      working-directory: backend/game
+      run: ./gradlew checkstyleMain
+
+    - name: Run SpotBugs
+      working-directory: backend/game
+      run: ./gradlew spotbugsMain
+
+    - name: Upload SpotBugs Report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: spotbugs-report
+        path: backend/game/build/reports/spotbugs/main.html
+
+    - name: Upload Checkstyle Report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: checkstyle-report
+        path: backend/game/build/reports/checkstyle/main.html
